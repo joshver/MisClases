@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a493c01b-8a1a-4fe2-b8d4-c12f00071bde">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+    <style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+    <style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+    <style name="Detail" fontName="Arial" fontSize="12"/>
+    <style name="Row" mode="Transparent">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style backcolor="#E6DAC3"/>
+        </conditionalStyle>
+    </style>
+    <queryString>
+		<![CDATA[SELECT
+     empleado.`clave` AS Clave,
+     empleado.`nombre` AS Nombre,
+     empleado.`sueldo` AS Suledo,
+     empleado.`dias` AS Dias,
+     empleado.`sueldo_total` AS Total
+FROM
+     `empleado` empleado]]>
+    </queryString>
+    <field name="Clave" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="Nombre" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="Suledo" class="java.lang.Integer"/>
+    <field name="Dias" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="Total" class="java.lang.Integer"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="91" splitType="Stretch">
+            <staticText>
+                <reportElement style="Title" x="0" y="0" width="555" height="62" uuid="54ab74b7-8473-4482-9c37-b553358bf1c7"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="40" pdfFontName="Times-Roman"/>
+                </textElement>
+                <text><![CDATA[Reporte Empleados]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="SubTitle" x="1" y="62" width="554" height="22" uuid="b4d9988b-de0c-4f29-a419-16ef48b2f09f"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+                </textElement>
+                <text><![CDATA[Doctor Verduzco]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="16" splitType="Stretch">
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="64a80320-e71d-442a-9cd4-7e60699a7308"/>
+                <graphicElement>
+                    <pen lineWidth="0.5" lineColor="#999999"/>
+                </graphicElement>
+            </line>
+            <staticText>
+                <reportElement style="Column header" x="0" y="0" width="111" height="15" forecolor="#736343" uuid="2542bfe3-5805-44fc-b0f8-e43524cdde8a"/>
+                <text><![CDATA[Clave]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" x="111" y="0" width="111" height="15" forecolor="#736343" uuid="cc4940b7-bc7d-4518-a39d-3338be09585b"/>
+                <text><![CDATA[Nombre]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" x="222" y="0" width="111" height="15" forecolor="#736343" uuid="ad460777-cbc3-4fea-a74c-9ce7597b4bd1"/>
+                <text><![CDATA[Suledo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" x="333" y="0" width="111" height="15" forecolor="#736343" uuid="f9bc24e4-8a30-44cd-bb94-f65f812a8b4d"/>
+                <text><![CDATA[Dias]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" x="444" y="0" width="111" height="15" forecolor="#736343" uuid="234bed82-b8d9-47e5-ae40-b7430c6f494a"/>
+                <text><![CDATA[Total]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="15" splitType="Stretch">
+            <frame>
+                <reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="008634af-a7f2-409b-abca-247368742bf3"/>
+                <textField isStretchWithOverflow="true">
+                    <reportElement style="Detail" x="0" y="0" width="111" height="15" uuid="72e35425-918e-430b-bd4d-481a2f0f46c8"/>
+                    <textFieldExpression><![CDATA[$F{Clave}]]></textFieldExpression>
+                </textField>
+                <textField isStretchWithOverflow="true">
+                    <reportElement style="Detail" x="111" y="0" width="111" height="15" uuid="f1d73888-4c51-4fbf-bccd-8fb397d12fd5"/>
+                    <textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+                </textField>
+                <textField isStretchWithOverflow="true">
+                    <reportElement style="Detail" x="222" y="0" width="111" height="15" uuid="baf98f5f-9b4b-4bcc-851d-66940505c2eb"/>
+                    <textFieldExpression><![CDATA[$F{Suledo}]]></textFieldExpression>
+                </textField>
+                <textField isStretchWithOverflow="true">
+                    <reportElement style="Detail" x="333" y="0" width="111" height="15" uuid="eae23977-54b1-46bc-9908-122b0f4359a7"/>
+                    <textFieldExpression><![CDATA[$F{Dias}]]></textFieldExpression>
+                </textField>
+                <textField isStretchWithOverflow="true">
+                    <reportElement style="Detail" x="444" y="0" width="111" height="15" uuid="6e511be8-4e35-4ee1-ae3d-2c186eef4417"/>
+                    <textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="45" splitType="Stretch">
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="931ba730-5c72-43dc-a700-5fa406ee67bf"/>
+                <graphicElement>
+                    <pen lineWidth="0.5" lineColor="#999999"/>
+                </graphicElement>
+            </line>
+        </band>
+    </columnFooter>
+    <pageFooter>
+        <band height="25" splitType="Stretch">
+            <frame>
+                <reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="78aef7f4-ae0b-4e35-bd67-44cc2d5dc017"/>
+                <textField evaluationTime="Report">
+                    <reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="55726ba7-c31d-418e-9274-a5304b4ee51e"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="a50d35b7-6900-4712-b52d-87c3ff9583c1"/>
+                    <textElement textAlignment="Right" verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+                </textField>
+                <textField pattern="EEEEE dd MMMMM yyyy">
+                    <reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="7583fdd8-f00f-41cf-ab57-34f5bf0bd276"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
+    </pageFooter>
+    <summary>
+        <band splitType="Stretch"/>
+    </summary>
+</jasperReport>
