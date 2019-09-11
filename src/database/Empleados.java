@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -98,18 +96,8 @@ public class Empleados {
     public void imprimirReporte() {
         Conexion conecion = new Conexion();
         try {
-
-//            String fileName="./src/database/Empleados.jrxml";
-//            String filetoFill="./src/Laporan/Empleados.jasper";
-//            JasperCompileManager.compileReport(fileName);
-//            Map param= new HashMap();
-//            JasperFillManager.fillReport(filetoFill, param, conecion.connection());
-//            JasperPrint jp=JasperFillManager.fillReport(filetoFill, param,conecion.connection());
-//            JasperViewer.viewReport(jp,false);
-            //String input = "\\database\\Empleados.jrxml";
             File file = new File("src/database/Empleados.jrxml");
             String absolutePath = file.getAbsolutePath();
-//            JasperReport jr =JasperCompileManager.compileReport(input);
             JasperDesign jd;
             jd = JRXmlLoader.load(absolutePath);
             String sql = "SELECT\n"
