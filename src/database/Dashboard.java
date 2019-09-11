@@ -10,7 +10,12 @@ public class Dashboard extends javax.swing.JFrame {
         PropertyConfigurator.configure("log4j.properties");
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
-        db = new Empleados();
+        try {
+            db = new Empleados();
+        } catch (Exception e) {
+            jMenuItem2.setEnabled(false);
+            jMenuItem3.setEnabled(false);
+        }
     }
 
     @SuppressWarnings("unchecked")
