@@ -398,6 +398,7 @@ public class Frm_Empleados extends javax.swing.JFrame {
     }//GEN-LAST:event_tblEmpleadosMouseClicked
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        boolean found = false;
         String input = (String) JOptionPane.showInputDialog(
           new JFrame(), "Ingresa el numero de clave", "Buscar", JOptionPane.INFORMATION_MESSAGE,
           new ImageIcon("/assets/magnifier 16x16.png"), null, "");
@@ -417,10 +418,14 @@ public class Frm_Empleados extends javax.swing.JFrame {
                     spDiasTrabajados.setValue(tblEmpleados.getValueAt(i, 3));
                     btnModificar.setEnabled(true);
                     btnEliminar.setEnabled(true);
+                    found = true;
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(new JFrame(), e, "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
+        }
+        if (!found) {
+            JOptionPane.showMessageDialog(new JFrame(), "Registro no se encontro", "Buscar", JOptionPane.ERROR_MESSAGE);
         }
         Toolkit.getDefaultToolkit().beep();
     }//GEN-LAST:event_btnBuscarActionPerformed
@@ -437,9 +442,6 @@ public class Frm_Empleados extends javax.swing.JFrame {
         txtClave.setEnabled(false);
     }//GEN-LAST:event_btnModificarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
